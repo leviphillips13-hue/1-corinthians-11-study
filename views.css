@@ -1,0 +1,456 @@
+/* views.css - WB-h3. Layout for structure, topics, commentators, sources views and commentary cards.
+ * Colours only via custom properties defined in styles.css. */
+
+.view-title {
+  font-size: 1.4rem;
+  margin: 1rem 0 0.75rem;
+  overflow-wrap: anywhere;
+}
+
+.view-sub {
+  font-size: 1.1rem;
+  margin: 1.5rem 0 0.5rem;
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem;
+}
+
+.lbl {
+  display: inline-block;
+  font-size: 0.8em;
+  color: var(--muted);
+  margin-right: 0.4em;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.mark {
+  display: inline-block;
+  font-size: 0.8em;
+  padding: 0 0.4em;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--muted);
+}
+
+.ext {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* chips */
+.chip,
+.chip-static,
+.vchip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  max-width: 100%;
+  padding: 0.2em 0.7em;
+  margin: 0.15em 0.25em 0.15em 0;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  text-align: start;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+button.chip {
+  cursor: pointer;
+}
+
+button.chip[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--surface);
+  border-color: var(--accent);
+}
+
+.chip-static {
+  color: var(--muted);
+}
+
+.vchip {
+  font-size: 0.85rem;
+  color: var(--muted);
+  min-height: 1.5rem;
+}
+
+.ref-plain {
+  overflow-wrap: anywhere;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* commentary cards */
+.cc {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 6px;
+  padding: 0.75rem 0.9rem;
+  margin: 0.75rem 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.cc-head p {
+  margin: 0.15rem 0;
+}
+
+.cc-name {
+  font-weight: 600;
+}
+
+.cc-head .cc-name + span {
+  color: var(--muted);
+  margin-left: 0.4em;
+  font-size: 0.9em;
+}
+
+.cc-work {
+  font-style: italic;
+}
+
+.cc-locator,
+.cc-edition {
+  font-size: 0.9em;
+}
+
+.cc-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  margin: 0.5rem 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.cc-quote {
+  margin: 0.5rem 0;
+}
+
+.cc-p {
+  white-space: pre-line;
+  margin: 0.5em 0;
+  overflow-wrap: anywhere;
+}
+
+.cc-p:empty {
+  display: none;
+}
+
+.cc-pos {
+  margin: 0.5rem 0;
+}
+
+.pos-quote {
+  white-space: pre-line;
+  border-left: 3px solid var(--accent);
+  padding: 0.25rem 0 0.25rem 0.6rem;
+  margin: 0.4rem 0;
+  overflow-wrap: anywhere;
+}
+
+.cc-refs {
+  margin: 0.5rem 0;
+}
+
+.cc-cited-group {
+  margin: 0.25rem 0;
+}
+
+.cc-citedby {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.cc-basis {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0.4rem 0;
+  overflow-wrap: anywhere;
+}
+
+.cc-foot {
+  margin: 0.4rem 0 0;
+  font-size: 0.9rem;
+}
+
+/* bibliography lines */
+.biblio {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.bib-part {
+  display: inline;
+}
+
+.bib-part + .bib-part::before {
+  content: " \00B7  ";
+  color: var(--muted);
+}
+
+/* filter rows and era groups */
+.cl-filters {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0.75rem 0;
+}
+
+.cl-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.cl-label {
+  min-width: 4.5rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  padding-top: 0.35em;
+}
+
+.cl-chips {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.cl-group {
+  margin-bottom: 1rem;
+}
+
+.cl-era {
+  font-size: 1.05rem;
+  margin: 1rem 0 0.25rem;
+  overflow-wrap: anywhere;
+}
+
+/* structure */
+.sp {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.75rem 0.9rem;
+  margin: 0.75rem 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.sp-head p {
+  margin: 0.15rem 0;
+}
+
+.sp-name {
+  font-weight: 600;
+}
+
+.sp-work {
+  font-style: italic;
+}
+
+.sp-meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sp-rep,
+.sp-foot {
+  font-size: 0.9rem;
+  margin: 0.4rem 0;
+  overflow-wrap: anywhere;
+}
+
+.ladder {
+  list-style: none;
+  margin: 0.5rem 0;
+  padding: 0;
+}
+
+.ld-row {
+  padding-left: calc(min(var(--indent, 0), 4) * 1.5rem);
+  margin: 0.25rem 0;
+  min-width: 0;
+}
+
+.ld-btn {
+  display: block;
+  width: 100%;
+  min-height: 2.25rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.ld-btn:hover,
+.ld-btn:focus-visible {
+  background: var(--highlight);
+}
+
+.ld-static {
+  cursor: default;
+  border-style: dashed;
+}
+
+.ld-label {
+  font-weight: 700;
+  margin-right: 0.5em;
+}
+
+.ld-text {
+  white-space: pre-line;
+  display: block;
+  margin-top: 0.2rem;
+}
+
+@media (min-width: 600px) {
+  .ld-row {
+    padding-left: calc(var(--indent, 0) * 1.5rem);
+  }
+}
+
+/* topics */
+.tp-list {
+  margin-top: 0.5rem;
+}
+
+.topic {
+  border-top: 1px solid var(--border);
+  padding: 0.75rem 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.tp-index {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.tp-subject {
+  font-size: 1.1rem;
+  margin: 0.15rem 0 0.4rem;
+}
+
+.tp-why,
+.tp-linked {
+  font-size: 0.9rem;
+  margin: 0.3rem 0;
+}
+
+.tp-why {
+  color: var(--muted);
+}
+
+.tp-lines {
+  margin-top: 0.5rem;
+}
+
+.tl {
+  padding-left: calc(min(var(--depth, 0), 6) * 1rem);
+  margin: 0.3rem 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.tl-text {
+  margin: 0;
+  white-space: pre-line;
+}
+
+.tl-refs {
+  margin: 0.15rem 0;
+}
+
+.tl-raw {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 600px) {
+  .tl {
+    padding-left: calc(var(--depth, 0) * 1rem);
+  }
+}
+
+/* sources */
+.method-p {
+  margin: 0.6rem 0;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.rules,
+.licences {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.rule,
+.lic {
+  margin: 0.45rem 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.rule-id,
+.lic-label {
+  font-weight: 600;
+  margin-right: 0.4em;
+}
+
+.lic-licence {
+  color: var(--muted);
+  margin-right: 0.4em;
+}
+
+.bib-list {
+  margin: 0.5rem 0;
+}
+
+.bib-list .biblio {
+  margin: 0.4rem 0;
+}
+
+/* phone: keep long URLs and chips inside the viewport */
+@media (max-width: 599px) {
+  .chip,
+  .chip-static,
+  .vchip {
+    font-size: 0.85rem;
+  }
+
+  .cc,
+  .sp,
+  .topic {
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+  }
+}
