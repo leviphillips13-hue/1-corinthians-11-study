@@ -3,10 +3,10 @@
 <head>
 <meta name="robots" content="noindex, nofollow">
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>1 Corinthians 11:3–16</title>
 <script>
-/* Apply saved theme before first paint; app.js manages the toggle. */
+/* Apply saved theme before first paint; core.js manages the toggle. */
 (function () {
   try {
     var t = localStorage.getItem("c11-theme");
@@ -16,49 +16,24 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Hebrew:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Hebrew:wght@400;700&display=swap" rel="stylesheet">
 <link rel="icon" href="data:,">
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="views.css">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/study.css">
+<link rel="stylesheet" href="css/scripture.css">
+<link rel="stylesheet" href="css/commentary.css">
+<link rel="stylesheet" href="css/library.css">
+<link rel="stylesheet" href="css/structure.css">
 </head>
 <body>
 <div role="status" style="background:#7a4a12;color:#fff;font:600 14px/1.4 system-ui,sans-serif;text-align:center;padding:6px 16px">Draft — work in progress</div>
-<header class="site-header">
-  <div class="wrap">
-    <div class="title-row">
-      <a class="site-title" href="#passage">1 Corinthians 11:3–16</a>
-      <div class="controls">
-        <div class="seg" role="group" aria-label="Translation">
-          <button type="button" data-tr="bsb" aria-pressed="true">BSB</button>
-          <button type="button" data-tr="kjv" aria-pressed="false">KJV</button>
-        </div>
-        <button type="button" id="theme-toggle" class="theme-btn">Theme</button>
-      </div>
-    </div>
-    <nav class="tabs" aria-label="Sections">
-      <a href="#passage">Passage</a>
-      <a href="#structure">Structure</a>
-      <a href="#topics">Topics</a>
-      <a href="#commentators">Commentators</a>
-      <a href="#sources">Sources &amp; Method</a>
-    </nav>
-  </div>
-</header>
-
+<a class="skip-link" href="#main">Skip to content</a>
+<header id="site-header" class="site-header"></header>
 <div id="fixtures-banner" class="banner" hidden>Development fixtures</div>
-
-<main id="main" class="wrap">
-  <section id="view-passage" hidden></section>
-  <section id="view-structure" hidden></section>
-  <section id="view-topics" hidden></section>
-  <section id="view-commentators" hidden></section>
-  <section id="view-sources" hidden></section>
-</main>
-
-<div id="popover-root"></div>
-<div id="drawer-root"></div>
-
-<script src="app.js" defer></script>
-<script src="views.js" defer></script>
+<main id="main" tabindex="-1"></main>
+<nav id="bottom-nav" class="bottom-nav" aria-label="Steps"></nav>
+<div id="overlay-root"></div>
+<script type="module" src="js/main.js"></script>
 </body>
 </html>

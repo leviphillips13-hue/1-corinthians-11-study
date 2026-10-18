@@ -1,0 +1,81 @@
+/* scripture.css (UX-h2): ref chips + inline text, Scripture tab, topic accordions (shared with the Topics library). */
+
+/* ----- ref chips ----- */
+.ref-group { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
+.ref-group > .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.ref-chip, .chip-static {
+  font-family: var(--font-ui); font-size: var(--fs-sm); line-height: var(--lh-ui);
+  background: var(--surface-2); color: var(--ink); border: 1px solid transparent;
+  border-radius: var(--radius-pill); padding: 4px 10px; min-height: 32px;
+  display: inline-flex; align-items: center; cursor: pointer;
+}
+.chip-static { cursor: default; color: var(--ink-2); }
+.ref-chip:hover { background: var(--surface-3); }
+.ref-chip[aria-expanded="true"] { background: var(--accent-soft); color: var(--accent-soft-ink); border-color: var(--accent); }
+.ref-all { align-self: flex-end; font-family: var(--font-ui); font-size: var(--fs-sm); white-space: nowrap; }
+.tsk-head, .cc-cites-head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--sp-3); }
+.ref-word.is-plain { cursor: default; }
+.ref-texts { display: flex; flex-direction: column; gap: var(--sp-3); }
+.ref-texts:empty { display: none; }
+.ref-text {
+  border-left: 3px solid var(--accent-soft); padding: var(--sp-1) 0 var(--sp-1) var(--sp-3);
+  font-family: var(--font-body); font-size: var(--fs-body); line-height: var(--lh-read); color: var(--ink);
+  max-width: var(--read-max); background: transparent;
+}
+.ref-text-label { font-family: var(--font-ui); font-size: var(--fs-xs); color: var(--ink-3); letter-spacing: .02em; margin-bottom: var(--sp-1); }
+.ref-text-verse { margin: 0 0 var(--sp-2); }
+.ref-vn { font-family: var(--font-ui); font-size: var(--fs-xs); font-weight: var(--fw-semibold); color: var(--ink-3); vertical-align: super; }
+.ref-notext { color: var(--ink-3); font-style: italic; }
+.ref-words { display: flex; flex-wrap: wrap; gap: var(--sp-1) var(--sp-3); margin: var(--sp-2) 0; font-family: var(--font-hebrew); font-size: var(--fs-read); line-height: 1.8; }
+.ref-words.greek { font-family: var(--font-greek); }
+.ref-word {
+  font: inherit; color: var(--ink); background: transparent; border: 0; border-bottom: 1px dotted var(--line-strong);
+  padding: 0 var(--sp-1); cursor: pointer; border-radius: var(--radius-sm);
+}
+.ref-word:hover { background: var(--accent-soft); color: var(--accent-soft-ink); }
+.ref-study { font-family: var(--font-ui); font-size: var(--fs-sm); }
+.ref-study a { color: var(--accent); }
+
+/* ----- Scripture tab ----- */
+.sc-hint { margin: 0 0 var(--sp-3); }
+.sc-list { display: flex; flex-direction: column; gap: var(--sp-3); }
+.sc-acc { background: var(--surface); border: var(--border); border-radius: var(--radius); }
+.sc-acc > summary { min-height: 44px; padding: var(--sp-3) var(--sp-4); }
+.sc-acc > .acc-body { padding: var(--sp-2) var(--sp-4) var(--sp-4); display: flex; flex-direction: column; gap: var(--sp-4); border-top: var(--border); }
+.sc-acc .acc-title { font-family: var(--font-ui); font-size: var(--fs-md); font-weight: var(--fw-semibold); }
+.tsk-row, .cite-row { display: flex; flex-direction: column; gap: var(--sp-2); padding-top: var(--sp-3); border-top: 1px solid var(--line); }
+.tsk-row:first-child, .cite-row:first-child { border-top: 0; padding-top: var(--sp-2); }
+.tsk-key { font-family: var(--font-body); font-size: var(--fs-body); font-weight: var(--fw-semibold); }
+.cite-by { margin: 0; }
+.cite-by a { color: var(--accent); }
+.user-entry { display: flex; flex-direction: column; gap: var(--sp-2); }
+.user-text { margin: 0; font-family: var(--font-body); }
+
+/* ----- topic accordions ----- */
+.tp { background: var(--surface); border: var(--border); border-radius: var(--radius); margin: var(--sp-2) 0; scroll-margin-top: calc(var(--header-h) + var(--sp-4)); }
+.tp > summary { min-height: 44px; padding: var(--sp-2) var(--sp-3); }
+.tp .acc-title { font-family: var(--font-ui); font-size: var(--fs-sm); font-weight: var(--fw-semibold); overflow-wrap: anywhere; }
+.tp-body { padding: var(--sp-2) var(--sp-3) var(--sp-3); border-top: var(--border); display: flex; flex-direction: column; gap: var(--sp-3); }
+.tp-lines { display: flex; flex-direction: column; gap: var(--sp-2); }
+.tl { display: flex; flex-direction: column; gap: var(--sp-1); min-width: 0; }
+.tl.has-depth { border-left: 1px solid var(--line); padding-left: var(--sp-3); }
+.tl.tl-head { margin-top: var(--sp-2); }
+.tl.tl-head .tl-label { font-family: var(--font-ui); font-size: var(--fs-sm); font-weight: var(--fw-semibold); color: var(--ink-2); }
+.tl:not(.tl-head) .tl-label { font-size: var(--fs-md); }
+@media (min-width: 600px) {
+  .tl:not(.tl-head) { display: grid; grid-template-columns: minmax(9rem, 28%) minmax(0, 1fr); column-gap: var(--sp-4); align-items: start; }
+  .tl:not(.tl-head) .tl-label { padding-top: 3px; }
+}
+.tl-label { font-family: var(--font-body); font-size: var(--fs-body); line-height: var(--lh-ui); overflow-wrap: anywhere; }
+.tl.is-match .tl-label { font-weight: var(--fw-semibold); }
+.tl-raw { margin: 0; }
+mark { background: var(--warn-soft); color: var(--warn-ink); border-radius: 2px; padding: 0 2px; }
+.why { font-family: var(--font-ui); font-size: var(--fs-sm); border-top: 1px dashed var(--line-strong); padding-top: var(--sp-2); }
+.why > summary { cursor: pointer; display: flex; gap: var(--sp-2); align-items: baseline; flex-wrap: wrap; min-height: 32px; color: var(--ink-2); }
+.why-title { font-weight: var(--fw-semibold); color: var(--ink-2); }
+.why-body { padding: var(--sp-2) 0 0; display: flex; flex-direction: column; gap: var(--sp-2); }
+.why-body p { margin: 0; max-width: var(--read-max); }
+@media (max-width: 599px) {
+  .sc-acc > .acc-body { padding-inline: var(--sp-3); }
+  .ref-chip, .chip-static { min-height: var(--touch); }
+}

@@ -1,0 +1,135 @@
+/* Design tokens (owned by UX-lead). Every other stylesheet uses these variables; no colour literals elsewhere.
+   Light is the default; dark applies via prefers-color-scheme unless data-theme="light", or via data-theme="dark". */
+:root {
+  /* type */
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-greek: "Gentium Book Plus", "Gentium Plus", "Source Serif 4", serif;
+  --font-hebrew: "Noto Serif Hebrew", "SBL Hebrew", serif;
+  --font-ui: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fs-xs: 0.75rem;    /* 12px meta, badges */
+  --fs-sm: 0.875rem;   /* 14px UI labels */
+  --fs-md: 1rem;       /* 16px body UI */
+  --fs-body: 1.0625rem;/* 17px reading text */
+  --fs-read: 1.35rem;  /* verse reading size */
+  --fs-greek: 1.3rem;
+  --fs-h3: 1.125rem;
+  --fs-h2: 1.375rem;
+  --fs-h1: 1.75rem;
+  --lh-tight: 1.25;
+  --lh-ui: 1.4;
+  --lh-read: 1.6;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* space (4px grid) */
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 20px;
+  --sp-6: 24px; --sp-8: 32px; --sp-10: 40px; --sp-12: 48px; --sp-16: 64px;
+  --gutter: 16px;
+  --read-max: 72ch;
+  --wide-max: 1120px;
+  --header-h: 60px;
+  --stepper-h: 52px;
+  --bottomnav-h: 0px;
+  --touch: 40px;
+  --drawer-w: min(520px, 100vw);
+
+  /* shape */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+  --border: 1px solid var(--line);
+
+  /* motion */
+  --dur: 160ms;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+
+  /* layers */
+  --z-sticky: 20; --z-header: 30; --z-menu: 40; --z-overlay: 50; --z-tooltip: 60;
+
+  /* colour: light */
+  --bg: #faf8f4;
+  --surface: #ffffff;
+  --surface-2: #f2efe8;
+  --surface-3: #e9e5dc;
+  --ink: #1d1c1a;
+  --ink-2: #4f4b45;      /* muted text, 8:1 on --bg */
+  --ink-3: #6b665e;      /* meta text, 5.3:1 on --bg */
+  --line: #e2ddd3;
+  --line-strong: #c9c2b4;
+  --accent: #1f4e79;     /* links, active step, focus */
+  --accent-hover: #173b5c;
+  --accent-ink: #ffffff; /* text on --accent */
+  --accent-soft: #e6edf5;
+  --accent-soft-ink: #173b5c;
+  --focus: #2f6fb3;
+  --warn-soft: #fbf1df;
+  --warn-ink: #6e470c;
+  --ok-soft: #e6f4ec;
+  --ok-ink: #1f5b3b;
+  --shadow-1: 0 1px 2px rgba(20, 18, 14, .06), 0 1px 1px rgba(20, 18, 14, .04);
+  --shadow-2: 0 8px 28px rgba(20, 18, 14, .14), 0 2px 6px rgba(20, 18, 14, .06);
+  --scrim: rgba(20, 18, 14, .38);
+
+  /* pair hues for chiasm diagrams: -line = bracket/border/bar fill, -bg = row tint, -ink = text on -bg (>= 4.5:1) */
+  --pair-1-line: #2f6fb3; --pair-1-bg: #e7f0fa; --pair-1-ink: #1d4f86;
+  --pair-2-line: #2e8a57; --pair-2-bg: #e4f3ea; --pair-2-ink: #1d5e3b;
+  --pair-3-line: #b7791f; --pair-3-bg: #fbf0dc; --pair-3-ink: #6e470c;
+  --pair-4-line: #7b55b8; --pair-4-bg: #efe9fa; --pair-4-ink: #523490;
+  --pair-5-line: #1f8a8a; --pair-5-bg: #e0f2f2; --pair-5-ink: #135858;
+  --pair-6-line: #c0466a; --pair-6-bg: #fae7ed; --pair-6-ink: #8a2946;
+  --pair-7-line: #8a6d3b; --pair-7-bg: #f2ece0; --pair-7-ink: #5a4522;
+  --pair-center-line: #c99a06; --pair-center-bg: #fff4cf; --pair-center-ink: #614a00;
+  --pair-none-line: var(--line-strong); --pair-none-bg: var(--surface-2); --pair-none-ink: var(--ink-2);
+
+  color-scheme: light;
+}
+
+@media (max-width: 599px) {
+  :root { --header-h: 52px; --stepper-h: 48px; --bottomnav-h: 60px; --fs-read: 1.25rem; --fs-h1: 1.5rem; }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14161a; --surface: #1b1e23; --surface-2: #22262c; --surface-3: #2b3037;
+    --ink: #ece8e1; --ink-2: #bdb7ad; --ink-3: #a19b91;
+    --line: #2f343b; --line-strong: #444a53;
+    --accent: #8fb6ea; --accent-hover: #b0cdf2; --accent-ink: #0f1a28;
+    --accent-soft: #1e2b3c; --accent-soft-ink: #c3d8f5; --focus: #8fb6ea;
+    --warn-soft: #33281a; --warn-ink: #f1cf94; --ok-soft: #173026; --ok-ink: #a3e0bf;
+    --shadow-1: 0 1px 2px rgba(0,0,0,.4); --shadow-2: 0 10px 32px rgba(0,0,0,.55); --scrim: rgba(0,0,0,.55);
+    --pair-1-line: #6aa5e6; --pair-1-bg: #1a2a3d; --pair-1-ink: #a9cdf5;
+    --pair-2-line: #5cc08a; --pair-2-bg: #172f24; --pair-2-ink: #a3e0bf;
+    --pair-3-line: #e0a84a; --pair-3-bg: #33281a; --pair-3-ink: #f1cf94;
+    --pair-4-line: #a98ae0; --pair-4-bg: #29223f; --pair-4-ink: #d3c3f5;
+    --pair-5-line: #4fc1c1; --pair-5-bg: #142f2f; --pair-5-ink: #9fe3e3;
+    --pair-6-line: #e57c9b; --pair-6-bg: #391e28; --pair-6-ink: #f5b5c8;
+    --pair-7-line: #c2a26b; --pair-7-bg: #2e271b; --pair-7-ink: #e5d2ab;
+    --pair-center-line: #f0c43c; --pair-center-bg: #3a3112; --pair-center-ink: #f7dc85;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14161a; --surface: #1b1e23; --surface-2: #22262c; --surface-3: #2b3037;
+  --ink: #ece8e1; --ink-2: #bdb7ad; --ink-3: #a19b91;
+  --line: #2f343b; --line-strong: #444a53;
+  --accent: #8fb6ea; --accent-hover: #b0cdf2; --accent-ink: #0f1a28;
+  --accent-soft: #1e2b3c; --accent-soft-ink: #c3d8f5; --focus: #8fb6ea;
+  --warn-soft: #33281a; --warn-ink: #f1cf94; --ok-soft: #173026; --ok-ink: #a3e0bf;
+  --shadow-1: 0 1px 2px rgba(0,0,0,.4); --shadow-2: 0 10px 32px rgba(0,0,0,.55); --scrim: rgba(0,0,0,.55);
+  --pair-1-line: #6aa5e6; --pair-1-bg: #1a2a3d; --pair-1-ink: #a9cdf5;
+  --pair-2-line: #5cc08a; --pair-2-bg: #172f24; --pair-2-ink: #a3e0bf;
+  --pair-3-line: #e0a84a; --pair-3-bg: #33281a; --pair-3-ink: #f1cf94;
+  --pair-4-line: #a98ae0; --pair-4-bg: #29223f; --pair-4-ink: #d3c3f5;
+  --pair-5-line: #4fc1c1; --pair-5-bg: #142f2f; --pair-5-ink: #9fe3e3;
+  --pair-6-line: #e57c9b; --pair-6-bg: #391e28; --pair-6-ink: #f5b5c8;
+  --pair-7-line: #c2a26b; --pair-7-bg: #2e271b; --pair-7-ink: #e5d2ab;
+  --pair-center-line: #f0c43c; --pair-center-bg: #3a3112; --pair-center-ink: #f7dc85;
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur: 0ms; }
+}
